@@ -1,15 +1,18 @@
 import styled from 'styled-components';
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import { Badge } from '@material-ui/core';
+import { mobile } from '../responsive';
 
 const Container = styled.div`
     height: 6rem;
+    ${mobile({ height: '5rem'})}
 `;
 
 const Wrapper = styled.div`
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
+    ${mobile({ padding: '1rem 0rem'})}
 `;
 
 const Left = styled.div`
@@ -21,6 +24,7 @@ const Left = styled.div`
 const Language = styled.span`
     font-size: 1.4rem;
     cursor: pointer;
+    ${mobile({ display: 'none'})}
 `;
 
 const SearchContainer = styled.div`
@@ -32,6 +36,7 @@ const SearchContainer = styled.div`
 
 const Input = styled.input`
     border: none;
+    ${mobile({ width: '5rem'})}
 `;
 
 const Center = styled.div`
@@ -41,6 +46,7 @@ const Center = styled.div`
 
 const Logo = styled.h1`
     font-weight: bold;
+    ${mobile({ fontSize: '2.4rem'})}
 `;
 
 const Right = styled.div`
@@ -48,12 +54,14 @@ const Right = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    ${mobile({ flex: 2, justifyContent: 'center'})}
 `;
 
 const MenuItem = styled.div`
     font-size: 1.4rem;
     cursor: pointer;
     margin-left: 2.5rem;
+    ${mobile({ fontSize: '1.2rem', marginLeft:'1rem'})}
 `;
 
 const Navbar = () => {
@@ -63,7 +71,7 @@ const Navbar = () => {
                 <Left>
                     <Language>EN</Language>
                     <SearchContainer>
-                        <Input /> 
+                        <Input placeholder='Search' /> 
                         <Search style={{color:"gray", fontSize:'1.6rem'}} />
                     </SearchContainer>
                 </Left>

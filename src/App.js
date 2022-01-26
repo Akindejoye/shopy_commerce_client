@@ -5,12 +5,27 @@ import ProductList from './Pages/ProductList';
 import Register from './Pages/Register';
 import Login from './Pages/Login';
 import Cart from './Pages/Cart';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 
 const App = () => {
+
+  const user = true;
+
   return (
-    <div className="App">
-      <Home />
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path='/'><Home /></Route>
+        <Route exact path='/products/:category'><ProductList /></Route>
+        <Route exact path='/product/:id'><Product /></Route>
+        <Route exact path='/cart'><Cart /></Route>
+        <Route exact path='/login'>
+          {user ? <Redirect to='/' /> : <Login />}
+        </Route>
+        <Route exact path='/register'>
+          {user ? <Redirect to='/' /> : <Register />}
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
